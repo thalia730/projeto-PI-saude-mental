@@ -6,11 +6,12 @@ body {
 
 /* HEADER */
 header {
-    background:url('saude\ mental.png') no-repeat center center;
+    background-image: url("SaudeMental.png");
     background-size: cover;
-    text-align: center;
-    color: white;
-    padding: 150px 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 200px; /* você controla a altura */
 }
 
 /* BOTÃO ÁUDIO */
@@ -82,12 +83,25 @@ textarea {
 }
 
 .desabafo button {
-    position: absolute;
     top: 5px;
     right: 5px;
     background: red;
 }
+.acoes button:first-child {
+    background: #ffc107; /* editar */
+    color: black;
+}
 
+.acoes button:last-child {
+    background: #f44336; /* excluir */
+    color: white;
+}
+.acoes {
+    display: flex;
+    justify-content: flex-end; /* joga pra direita */
+    gap: 10px; /* espaço entre botões */
+    margin-top: 8px;
+}
 /* POPUP */
 .popup {
     position: fixed;

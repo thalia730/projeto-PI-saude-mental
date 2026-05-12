@@ -58,48 +58,71 @@ function publicar() {
         return;
     }
 
-    if (emoteSelecionado === "") {
-        mostrarPopup("Escolha um emoji!", "erro");
-        return;
-    }
-
     let lista = document.getElementById("lista");
 
     let div = document.createElement("div");
     div.classList.add("desabafo");
 
     let p = document.createElement("p");
-    p.textContent = emoteSelecionado + " " + texto;
+    p.textContent = texto;
 
     let msg = document.createElement("p");
     msg.textContent = mensagemEmote;
 
+    let acoes = document.createElement("div");
+    acoes.classList.add("acoes");
+
+    // 🖊️EDITAR
+    let editar = document.createElement("button");
+    editar.textContent = "Editar";
+    editar.onclick = () => {
+
+        // cria textarea com texto atual
+        let textarea = document.createElement("textarea");
+        textarea.value = p.textContent;
+        textarea.style.width = "100%";
+
+        // botão salvar
+        let salvar = document.createElement("button");
+        salvar.textContent = "Salvar";
+
+        salvar.onclick = () => {
+            if (textarea.value.trim() !== "") {
+                p.textContent = textarea.value;
+
+                // volta ao normal
+                div.replaceChild(p, textarea);
+                acoes.replaceChild(editar, salvar);
+            }
+        };
+
+        // troca texto por textarea
+        div.replaceChild(textarea, p);
+
+        // troca botão editar por salvar
+        acoes.replaceChild(salvar, editar);
+    };
+    //  EXCLUIR
     let btn = document.createElement("button");
-    btn.textContent = "❌";
+    btn.textContent = "Excluir";
+
     btn.onclick = () => lista.removeChild(div);
 
+    // AGRUPANDO
+    acoes.appendChild(editar);
+    acoes.appendChild(btn);
+
+    // ADICIONANDO
     div.appendChild(p);
     div.appendChild(msg);
-    div.appendChild(btn);
+    div.appendChild(acoes);
 
+    // ✅ ESSA LINHA FALTAVA
     lista.appendChild(div);
 
+    // feedback
     mostrarPopup("Desabafo publicado 💚");
 
+    // limpar campo
     document.getElementById("texto").value = "";
 }
-
-// 💚 FRASES
-const frases = [
-    "Você está fazendo o melhor que pode 💚",
-    "Respire fundo 🌿",
-    "Um passo de cada vez 🧘",
-    "Vai passar 🌅"
-];
-
-function gerarFrase() {
-    let frase = frases[Math.floor(Math.random() * frases.length)];
-    document.getElementById("fraseMotivacional").textContent = frase;
-}
-
-window.onload = gerarFrase;
