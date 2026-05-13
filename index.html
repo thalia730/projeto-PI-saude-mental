@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,58 +10,59 @@
 
 <body>
 
-<header>
-    <!-- BOTÃO DE ÁUDIO -->
-    <button id="botaoAudio" onclick="toggleAudio()">🔊</button>
-</header>
+    <header>
+        <!-- BOTÃO DE ÁUDIO -->
+        <button id="botaoAudio" onclick="toggleAudio()">🔊</button>
+    </header>
 
-<!-- ÁUDIO -->
-<audio id="bgAudio" loop>
-    <source src="RuidoBranco.mp3" type="audio/mpeg">
-</audio>
+    <!-- ÁUDIO -->
+    <audio id="bgAudio" loop>
+        <source src="RuidoBranco.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="container">
+    <div class="container">
 
-    <div class="box">
-        <h2>💚 Frase do dia</h2>
-        <p id="fraseMotivacional"></p>
-    </div>
-
-    <div class="box">
-        <h2>📞 Recursos importantes</h2>
-        <ul>
-            <li>CVV - 188</li>
-            <li>SAMU - 192</li>
-            <li>Disque Saúde - 136</li>
-        </ul>
-    </div>
-
-    <div class="box">
-        <h2>😊 Como você está se sentindo?</h2>
-
-        <div id="emotes">
-            <button onclick="selecionarEmote('😊')">😊</button>
-            <button onclick="selecionarEmote('😔')">😔</button>
-            <button onclick="selecionarEmote('😰')">😰</button>
-            <button onclick="selecionarEmote('😡')">😡</button>
-            <button onclick="selecionarEmote('😴')">😴</button>
+        <div class="box">
+            <h2>💚 Frase do dia</h2>
+            <p id="frases"></p>
         </div>
+
+        <div class="box">
+            <h2>📞 Recursos importantes</h2>
+            <ul>
+                <li>CVV - 188</li>
+                <li>SAMU - 192</li>
+                <li>Disque Saúde - 136</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>😊 Como você está se sentindo?</h2>
+
+            <div id="emotes">
+                <button onclick="selecionarEmote('😊')">😊</button>
+                <button onclick="selecionarEmote('😔')">😔</button>
+                <button onclick="selecionarEmote('😰')">😰</button>
+                <button onclick="selecionarEmote('😡')">😡</button>
+                <button onclick="selecionarEmote('😴')">😴</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>💬 Espaço para desabafar</h2>
+
+            <textarea id="texto" placeholder="Escreva aqui..."></textarea>
+            <button onclick="publicar()">Publicar</button>
+            <h3>Desabafos recentes</h3>
+            <div id="lista"></div>
+        </div>
+
     </div>
 
-    <div class="box">
-        <h2>💬 Espaço para desabafar</h2>
+    <!-- POPUP -->
+    <div id="popup" class="popup"></div>
 
-        <textarea id="texto" placeholder="Escreva aqui..."></textarea>
-        <button onclick="publicar()">Publicar</button>
-        <h3>Desabafos recentes</h3>
-        <div id="lista"></div>
-    </div>
-
-</div>
-
-<!-- POPUP -->
-<div id="popup" class="popup"></div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

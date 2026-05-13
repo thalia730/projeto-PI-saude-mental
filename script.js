@@ -48,7 +48,18 @@ function selecionarEmote(emote) {
 
     mostrarPopup(mensagemEmote);
 }
-
+const frases = [
+    "Você é mais forte do que pensa 💚",
+    "Vai dar tudo certo ✨",
+    "Respire fundo, isso vai passar 🌿",
+    "Você não está sozinho(a) 💚",
+    "Continue, você consegue 💪"
+];
+function mostrarFrase() {
+    const aleatoria = frases[Math.floor(Math.random() * frases.length)];
+    document.getElementById("frases").textContent = aleatoria;
+}
+window.onload = mostrarFrase;
 // 💬 PUBLICAR
 function publicar() {
     let texto = document.getElementById("texto").value;

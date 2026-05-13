@@ -11,7 +11,8 @@ header {
     background-position: center;
     background-repeat: no-repeat;
 
-    height: 200px; /* você controla a altura */
+    height: 300px;
+    /* você controla a altura */
 }
 
 /* BOTÃO ÁUDIO */
@@ -27,7 +28,7 @@ header {
     font-size: 18px;
     cursor: pointer;
     z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* CONTAINER */
@@ -43,7 +44,7 @@ header {
     padding: 20px;
     margin: 20px 0;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* BOTÕES */
@@ -54,6 +55,11 @@ button {
     padding: 12px;
     border-radius: 8px;
     cursor: pointer;
+}
+
+#frases {
+    font-size: 18px;
+    color: #9c1515;
 }
 
 /* EMOTES */
@@ -87,21 +93,28 @@ textarea {
     right: 5px;
     background: red;
 }
+
 .acoes button:first-child {
-    background: #ffc107; /* editar */
+    background: #ffc107;
+    /* editar */
     color: black;
 }
 
 .acoes button:last-child {
-    background: #f44336; /* excluir */
+    background: #f44336;
+    /* excluir */
     color: white;
 }
+
 .acoes {
     display: flex;
-    justify-content: flex-end; /* joga pra direita */
-    gap: 10px; /* espaço entre botões */
+    justify-content: flex-end;
+    /* joga pra direita */
+    gap: 10px;
+    /* espaço entre botões */
     margin-top: 8px;
 }
+
 /* POPUP */
 .popup {
     position: fixed;
