@@ -11,29 +11,28 @@
 <body>
 
     <header>
-        <!-- BOTÃO DE ÁUDIO -->
+        <button onclick="logout()">Sair</button>
         <button id="botaoAudio" onclick="toggleAudio()">🔊</button>
     </header>
 
-    <!-- ÁUDIO -->
     <audio id="bgAudio" loop>
         <source src="RuidoBranco.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="container">
+    <!-- MENU -->
+    <div id="menu" class="menu">
+        <h2>💚 Mente Leve</h2>
 
+        <div class="bloco humor" onclick="abrir('telaHumor')">🧠 Humor</div>
+        <div class="bloco desabafo" onclick="abrir('telaDesabafo')">💬 Desabafar</div>
+        <div class="bloco respiracao" onclick="abrir('telaRespiracao')">🌬️ Respiração</div>
+    </div>
+
+    <!-- TELA HUMOR -->
+    <div id="telaHumor" class="tela">
         <div class="box">
             <h2>💚 Frase do dia</h2>
             <p id="frases"></p>
-        </div>
-
-        <div class="box">
-            <h2>📞 Recursos importantes</h2>
-            <ul>
-                <li>CVV - 188</li>
-                <li>SAMU - 192</li>
-                <li>Disque Saúde - 136</li>
-            </ul>
         </div>
 
         <div class="box">
@@ -48,21 +47,50 @@
             </div>
         </div>
 
+        <button onclick="voltar()">⬅ Voltar</button>
+    </div>
+
+    <!-- TELA DESABAFO -->
+    <div id="telaDesabafo" class="tela">
         <div class="box">
             <h2>💬 Espaço para desabafar</h2>
 
             <textarea id="texto" placeholder="Escreva aqui..."></textarea>
             <button onclick="publicar()">Publicar</button>
+
             <h3>Desabafos recentes</h3>
             <div id="lista"></div>
         </div>
 
+        <button onclick="voltar()">⬅ Voltar</button>
+    </div>
+
+    <!-- TELA RESPIRAÇÃO -->
+    <div id="telaRespiracao" class="tela">
+        <div class="box">
+            <h2>🌬️ Respiração</h2>
+            <p>Inspire... segure... expire...</p>
+        </div>
+
+        <div class="box">
+            <h2>📞 Recursos importantes</h2>
+            <ul>
+                <li>CVV - 188</li>
+                <li>SAMU - 192</li>
+                <li>Disque Saúde - 136</li>
+            </ul>
+        </div>
+
+        <button onclick="voltar()">⬅ Voltar</button>
     </div>
 
     <!-- POPUP -->
     <div id="popup" class="popup"></div>
 
+    <script src="menu.js"></script>
     <script src="script.js"></script>
+    <script src="scriptLogin.js"></script>
+
 </body>
 
 </html>

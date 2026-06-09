@@ -1,48 +1,91 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    background: linear-gradient(135deg, #e8f5e9, #f5f7f6);
-}
-
-/* HEADER */
-header {
-    background-image: url("SaudeMental.png");
-    background-size: cover;
-    background-position: center;
+    background-image: url("Natureza.webp");
     background-repeat: no-repeat;
-
-    height: 300px;
-    /* você controla a altura */
+    /* NÃO repetir */
+    background-size: cover;
+    /* ocupar a tela toda */
+    background-position: center;
+    /* centralizar */
+    background-attachment: fixed;
 }
 
-/* BOTÃO ÁUDIO */
-#botaoAudio {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    background: white;
-    color: #4CAF50;
-    padding: 12px;
-    border-radius: 50%;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
 
-/* CONTAINER */
-.container {
+/* TOPO */
+#topo {
+    display: flex;
+    justify-content: space-between;
     padding: 20px;
-    max-width: 900px;
-    margin: auto;
+    background: white;
+}
+
+#topo-esquerda h2 {
+    margin: 0;
+    color: white;
+}
+
+.menu {
+    margin: 0;
+    color: white;
+}
+
+
+#topo-esquerda p {
+    margin: 5px 0 0;
+    color: #555;
+}
+
+#topo-direita {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+#data {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+#hora {
+    color: #333;
+}
+
+/* BOTÃO AUDIO */
+#botaoAudio {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* LAYOUT PRINCIPAL */
+#main {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CENTRO */
+#conteudo {
+    flex: 2;
+}
+
+/* HISTÓRICO */
+#historico {
+    flex: 1;
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 12px;
 }
 
 /* BOX */
 .box {
     background: white;
     padding: 20px;
-    margin: 20px 0;
+    margin-bottom: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -52,14 +95,9 @@ button {
     background: linear-gradient(135deg, #4CAF50, #66bb6a);
     color: white;
     border: none;
-    padding: 12px;
+    padding: 10px;
     border-radius: 8px;
     cursor: pointer;
-}
-
-#frases {
-    font-size: 18px;
-    color: #9c1515;
 }
 
 /* EMOTES */
@@ -69,7 +107,7 @@ button {
 }
 
 #emotes button:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 /* TEXTAREA */
@@ -77,42 +115,6 @@ textarea {
     width: 100%;
     height: 100px;
     margin-top: 10px;
-}
-
-/* DESABAFOS */
-.desabafo {
-    background: #e8f5e9;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.desabafo button {
-    top: 5px;
-    right: 5px;
-    background: red;
-}
-
-.acoes button:first-child {
-    background: #ffc107;
-    /* editar */
-    color: black;
-}
-
-.acoes button:last-child {
-    background: #f44336;
-    /* excluir */
-    color: white;
-}
-
-.acoes {
-    display: flex;
-    justify-content: flex-end;
-    /* joga pra direita */
-    gap: 10px;
-    /* espaço entre botões */
-    margin-top: 8px;
 }
 
 /* POPUP */
@@ -125,16 +127,45 @@ textarea {
     padding: 15px;
     border-radius: 10px;
     opacity: 0;
-    transform: translateY(-20px);
     transition: 0.3s;
-    z-index: 9999;
 }
 
 .popup.show {
     opacity: 1;
-    transform: translateY(0);
 }
 
-.popup.erro {
-    background: #e53935;
+.tela {
+    display: none;
+}
+
+.menu {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.bloco {
+    width: 250px;
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bloco:hover {
+    transform: scale(1.05);
+}
+
+.humor {
+    background: #5dade2;
+}
+
+.desabafo {
+    background: #58d68d;
+}
+
+.respiracao {
+    background: #af7ac5;
 }
