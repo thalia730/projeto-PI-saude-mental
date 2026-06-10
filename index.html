@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mente Leve</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,9 +25,10 @@
         <div class="bloco humor" onclick="abrir('telaHumor')">🧠 Humor</div>
         <div class="bloco desabafo" onclick="abrir('telaDesabafo')">💬 Desabafar</div>
         <div class="bloco respiracao" onclick="abrir('telaRespiracao')">🌬️ Emergência</div>
+        <div class="bloco metas" onclick="abrir('telaMetas')">🎯 Metas</div>
     </div>
 
-    <!-- TELA HUMOR -->
+    <!-- HUMOR -->
     <div id="telaHumor" class="tela">
         <div class="box">
             <h2>💚 Frase do dia</h2>
@@ -36,8 +36,7 @@
         </div>
 
         <div class="box">
-            <h2>😊 Como você está se sentindo?</h2>
-
+            <h2>😊 Como você está?</h2>
             <div id="emotes">
                 <button onclick="selecionarEmote('😊')">😊</button>
                 <button onclick="selecionarEmote('😔')">😔</button>
@@ -50,52 +49,61 @@
         <button onclick="voltar()">⬅ Voltar</button>
     </div>
 
-    <!-- TELA DESABAFO -->
+    <!-- DESABAFO -->
     <div id="telaDesabafo" class="tela">
         <div class="box">
-            <h2>💬 Espaço para desabafar</h2>
-
-            <textarea id="texto" placeholder="Escreva aqui..."></textarea>
+            <h2>💬 Desabafar</h2>
+            <textarea id="texto"></textarea>
             <button onclick="publicar()">Publicar</button>
 
-            <h3>Desabafos recentes</h3>
             <div id="lista"></div>
         </div>
 
         <button onclick="voltar()">⬅ Voltar</button>
     </div>
 
-    <!-- TELA RESPIRAÇÃO -->
+    <!-- RESPIRAÇÃO -->
     <div id="telaRespiracao" class="tela">
         <div class="box">
-            <h2>🌬️ Emergência</h2>
+            <h2>🌬️ Respiração</h2>
 
             <div class="respiracao-box">
                 <div class="bolinha"></div>
                 <p id="textoRespiracao">Inspire...</p>
             </div>
-            <div class="box">
-                <h2>📞 Recursos importantes</h2>
-                <ul>
-                    <li>CVV - 188</li>
-                    <li>SAMU - 192</li>
-                    <li>Disque Saúde - 136</li>
-                </ul>
-            </div>
         </div>
+        <div class="box">
+            <h2>📞 Recursos importantes</h2>
+            <ul>
+                <li>CVV - 188</li>
+                <li>SAMU - 192</li>
+                <li>Disque Saúde - 136</li>
+            </ul>
+        </div>
+
         <button onclick="voltar()">⬅ Voltar</button>
     </div>
+
+    <!-- METAS -->
+    <div id="telaMetas" class="tela">
+        <div class="box">
+            <h2>🎯 Metas</h2>
+
+            <input type="text" id="novaMeta" placeholder="Digite sua meta">
+            <input type="date" id="dataMeta">
+
+            <button onclick="adicionarMeta()">Adicionar</button>
+
+            <p id="contador"></p>
+            <ul id="listaMetas"></ul>
+        </div>
+
+        <button onclick="voltar()">⬅ Voltar</button>
     </div>
 
-    <button onclick="voltar()">⬅ Voltar</button>
-</div>
-
-    <!-- POPUP -->
     <div id="popup" class="popup"></div>
 
-    <script src="menu.js"></script>
     <script src="script.js"></script>
-    <script src="scriptLogin.js"></script>
 
 </body>
 
