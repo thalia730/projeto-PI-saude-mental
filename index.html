@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Mente Leve</title>
@@ -9,102 +8,96 @@
 
 <body>
 
-    <header>
-        <button onclick="logout()">Sair</button>
-        <button id="botaoAudio" onclick="toggleAudio()">🔊</button>
-    </header>
+<header>
+    <button onclick="logout()">Sair</button>
+    <button id="botaoAudio" onclick="toggleAudio()">🔊</button>
+</header>
 
-    <audio id="bgAudio" loop>
-        <source src="RuidoBranco.mp3" type="audio/mpeg">
-    </audio>
+<audio id="bgAudio" loop>
+    <source src="RuidoBranco.mp3" type="audio/mpeg">
+</audio>
 
-    <!-- MENU -->
-    <div id="menu" class="menu">
-        <h2>💚 Mente Leve</h2>
+<div id="menu" class="menu">
+    <h2>💚 Mente Leve</h2>
 
-        <div class="bloco humor" onclick="abrir('telaHumor')">🧠 Humor</div>
-        <div class="bloco desabafo" onclick="abrir('telaDesabafo')">💬 Desabafar</div>
-        <div class="bloco respiracao" onclick="abrir('telaRespiracao')">🌬️ Emergência</div>
-        <div class="bloco metas" onclick="abrir('telaMetas')">🎯 Metas</div>
+    <div class="bloco humor" onclick="abrir('telaHumor')">🧠 Humor</div>
+    <div class="bloco desabafo" onclick="abrir('telaDesabafo')">💬 Desabafar</div>
+    <div class="bloco respiracao" onclick="abrir('telaRespiracao')">🌬️ Emergência</div>
+    <div class="bloco metas" onclick="abrir('telaMetas')">🎯 Metas</div>
+</div>
+
+<div id="telaHumor" class="tela">
+    <div class="box">
+        <h2>💚 Frase do dia</h2>
+        <p id="frases"></p>
     </div>
 
-    <!-- HUMOR -->
-    <div id="telaHumor" class="tela">
-        <div class="box">
-            <h2>💚 Frase do dia</h2>
-            <p id="frases"></p>
+    <div class="box">
+        <h2>😊 Como você está?</h2>
+        <div id="emotes">
+            <button onclick="selecionarEmote('😊')">😊</button>
+            <button onclick="selecionarEmote('😔')">😔</button>
+            <button onclick="selecionarEmote('😰')">😰</button>
+            <button onclick="selecionarEmote('😡')">😡</button>
+            <button onclick="selecionarEmote('😴')">😴</button>
         </div>
-
-        <div class="box">
-            <h2>😊 Como você está?</h2>
-            <div id="emotes">
-                <button onclick="selecionarEmote('😊')">😊</button>
-                <button onclick="selecionarEmote('😔')">😔</button>
-                <button onclick="selecionarEmote('😰')">😰</button>
-                <button onclick="selecionarEmote('😡')">😡</button>
-                <button onclick="selecionarEmote('😴')">😴</button>
-            </div>
-        </div>
-
-        <button onclick="voltar()">⬅ Voltar</button>
     </div>
 
-    <!-- DESABAFO -->
-    <div id="telaDesabafo" class="tela">
-        <div class="box">
-            <h2>💬 Desabafar</h2>
-            <textarea id="texto"></textarea>
-            <button onclick="publicar()">Publicar</button>
+    <button onclick="voltar()">⬅ Voltar</button>
+</div>
 
-            <div id="lista"></div>
-        </div>
-
-        <button onclick="voltar()">⬅ Voltar</button>
+<div id="telaDesabafo" class="tela">
+    <div class="box">
+        <h2>💬 Desabafar</h2>
+        <textarea id="texto"></textarea>
+        <button onclick="publicar()">Publicar</button>
+        <div id="lista"></div>
     </div>
 
-    <!-- RESPIRAÇÃO -->
-    <div id="telaRespiracao" class="tela">
-        <div class="box">
-            <h2>🌬️ Respiração</h2>
+    <button onclick="voltar()">⬅ Voltar</button>
+</div>
 
-            <div class="respiracao-box">
-                <div class="bolinha"></div>
-                <p id="textoRespiracao">Inspire...</p>
-            </div>
-        </div>
-        <div class="box">
-            <h2>📞 Recursos importantes</h2>
-            <ul>
-                <li>CVV - 188</li>
-                <li>SAMU - 192</li>
-                <li>Disque Saúde - 136</li>
-            </ul>
-        </div>
+<div id="telaRespiracao" class="tela">
+    <div class="box">
+        <h2>🌬️ Respiração</h2>
 
-        <button onclick="voltar()">⬅ Voltar</button>
+        <div class="respiracao-box">
+            <div class="bolinha"></div>
+            <p id="textoRespiracao">Inspire...</p>
+        </div>
     </div>
 
-    <!-- METAS -->
-    <div id="telaMetas" class="tela">
-        <div class="box">
-            <h2>🎯 Metas</h2>
-
-            <input type="text" id="novaMeta" placeholder="Digite sua meta">
-            <input type="date" id="dataMeta">
-
-            <button onclick="adicionarMeta()">Adicionar</button>
-
-            <p id="contador"></p>
-            <ul id="listaMetas"></ul>
-        </div>
-
-        <button onclick="voltar()">⬅ Voltar</button>
+    <div class="box">
+        <h2>📞 Recursos importantes</h2>
+        <ul>
+            <li>CVV - 188</li>
+            <li>SAMU - 192</li>
+            <li>Disque Saúde - 136</li>
+        </ul>
     </div>
 
-    <div id="popup" class="popup"></div>
+    <button onclick="voltar()">⬅ Voltar</button>
+</div>
 
-    <script src="script.js"></script>
+<div id="telaMetas" class="tela">
+    <div class="box">
+        <h2>🎯 Metas</h2>
+
+        <input type="text" id="novaMeta" placeholder="Digite sua meta">
+        <input type="date" id="dataMeta">
+
+        <button onclick="adicionarMeta()">Adicionar</button>
+
+        <p id="contador"></p>
+        <ul id="listaMetas"></ul>
+    </div>
+
+    <button onclick="voltar()">⬅ Voltar</button>
+</div>
+
+<div id="popup" class="popup"></div>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>

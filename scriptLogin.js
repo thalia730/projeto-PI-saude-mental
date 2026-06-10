@@ -6,18 +6,19 @@ function login() {
     let senhaSalva = localStorage.getItem("senha")
 
     if (mail === "" || pass === "") {
-        alert("Preencha todos os campos!");
-        return;
+        alert("Preencha todos os campos!")
+        return
     }
 
     if (mail === usuarioSalvo && pass === senhaSalva) {
         localStorage.setItem("logado", "true")
         window.location.href = "index.html"
     } else {
-        alert("Email ou senha incorretos!");
+        alert("Email ou senha incorretos!")
     }
 }
+
 function logout() {
-    localStorage.removeItem("logado");
-    window.location.href = "cadastro.html";
+    localStorage.removeItem("logado")
+    window.location.href = "cadastro.html"
 }

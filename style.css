@@ -1,28 +1,11 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
+    min-height: 100vh;
     background-image: url("Natureza.webp");
-    background-repeat: no-repeat;
-    /* NÃO repetir */
     background-size: cover;
-    /* ocupar a tela toda */
     background-position: center;
-    /* centralizar */
     background-attachment: fixed;
-}
-
-
-/* TOPO */
-#topo {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background: white;
-}
-
-
-#topo-esquerda h2 {
-    color: #2e7d32;
 }
 
 .menu {
@@ -30,82 +13,27 @@ body {
     text-align: center;
 }
 
-
-
-#topo-esquerda p {
-    margin: 5px 0 0;
-    color: #555;
-}
-
-#topo-direita {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-}
-
-#data {
-    font-weight: bold;
-    color: #2e7d32;
-}
-
-#hora {
-    color: #333;
-}
-
-/* BOTÃO AUDIO */
-#botaoAudio {
-    background: white;
-    border: 1px solid #ddd;
-    padding: 10px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-/* LAYOUT PRINCIPAL */
-#main {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
-
-/* CENTRO */
-#conteudo {
-    flex: 2;
-    display: flex;
+.tela {
+    display: none;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-/* HISTÓRICO */
-#historico {
-    flex: 1;
-    background: #f1f1f1;
-    padding: 15px;
-    border-radius: 12px;
-}
-
-/* BOX */
 .box {
     background: white;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 10px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
     width: 90%;
     max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
-    margin-left: auto;
-    margin-right: auto;
-
 }
 
-/* BOTÕES */
 button {
     background: linear-gradient(135deg, #4CAF50, #66bb6a);
     color: white;
@@ -113,27 +41,19 @@ button {
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 5px;
+    margin: 5px;
 }
 
-/* EMOTES */
-#emotes button {
-    font-size: 22px;
-    background: none;
+button:hover {
+    transform: scale(1.05);
 }
 
-#emotes button:hover {
-    transform: scale(1.2);
-}
-
-/* TEXTAREA */
 textarea {
     width: 100%;
     height: 100px;
     margin-top: 10px;
 }
 
-/* POPUP */
 .popup {
     position: fixed;
     top: 20px;
@@ -150,38 +70,20 @@ textarea {
     opacity: 1;
 }
 
-.tela {
-    display: none;
-}
-
 .bloco {
     width: 250px;
     margin: 15px auto;
     padding: 20px;
     border-radius: 10px;
     color: white;
-    font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.bloco:hover {
-    transform: scale(1.05);
-}
+.humor { background: #5dade2; }
+.desabafo { background: #58d68d; }
+.respiracao { background: #af7ac5; }
+.metas { background: #f5b041; }
 
-.humor {
-    background: #5dade2;
-}
-
-.desabafo {
-    background: #58d68d;
-}
-
-.respiracao {
-    background: #af7ac5;
-}
-
-/* FORA da .respiracao */
 .respiracao-box {
     display: flex;
     flex-direction: column;
@@ -189,7 +91,6 @@ textarea {
     justify-content: center;
     gap: 15px;
     height: 200px;
-    /* MUITO importante */
 }
 
 .bolinha {
@@ -197,41 +98,8 @@ textarea {
     height: 100px;
     background: #66bb6a;
     border-radius: 50%;
-    margin: 20px auto;
-
-    animation: respirar 6s infinite ease-in-out;
-}
-
-/* animação */
-@keyframes respirar {
-    0% {
-        transform: scale(1);
-    }
-
-    25% {
-        transform: scale(1.5);
-    }
-
-    50% {
-        transform: scale(1.5);
-    }
-
-    75% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-#contador {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.metas {
-    background: #f5b041;
+    transform: scale(1);
+    transition: transform 3s ease-in-out;
 }
 
 #listaMetas {
@@ -244,28 +112,6 @@ textarea {
     margin-top: 10px;
     padding: 10px;
     border-radius: 8px;
-
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-#listaMetas button {
-    margin-left: 5px;
-}
-
-#listaMetas li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#listaMetas div {
-    display: flex;
-    gap: 5px;
-}
-
-#listaMetas button {
-    padding: 5px 8px;
-    font-size: 14px;
 }
