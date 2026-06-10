@@ -142,3 +142,89 @@ function logout() {
     localStorage.removeItem("logado");
     window.location.href = "login.html";
 }
+
+let metas = JSON.parse(localStorage.getItem("metas")) || [];
+
+function salvarMetas() {
+    localStorage.setItem("metas", JSON.stringify(metas));
+}
+
+function adicionarMeta() {
+    let texto = document.getElementById("novaMeta").value;
+    let data = document.getElementById("dataMeta").value;
+
+    if (texto === "" || data === "") {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    // Emojis automáticos simples
+    let emoji = "🎯";
+    if (texto.toLowerCase().includes("água")) emoji = "💧";
+    if (texto.toLowerCase().includes("correr") || texto.toLowerCase().includes("exerc")) emoji = "🏃";
+    if (texto.toLowerCase().includes("estudar")) emoji = "📚";
+    if (texto.toLowerCase().includes("dormir")) emoji = "😴";
+
+    metas.push({
+        texto: `${emoji} ${texto}`,
+        data: data,
+        concluida: false
+    });
+
+    salvarMetas();
+    renderizarMetas();
+
+    document.getElementById("novaMeta").value = "";
+}
+
+function renderizarMetas() {
+    let lista = document.getElementById("listaMetas");
+    lista.innerHTML = "";
+
+    let hoje = new Date().toISOString().split("T")[0];
+
+    let metasHoje = metas.filter(m => m.data === hoje);
+
+    let concluidas = 0;
+
+    metasHoje.forEach((meta, index) => {
+        let li = document.createElement("li");
+
+        let span = document.createElement("span");
+        span.innerText = meta.texto;
+
+        if (meta.concluida) {
+            span.classList.add("concluida");
+            concluidas++;
+        }
+
+        let btnConcluir = document.createElement("button");
+        btnConcluir.innerText = "✔";
+        btnConcluir.onclick = function () {
+            meta.concluida = !meta.concluida;
+            salvarMetas();
+            renderizarMetas();
+        };
+
+        let btnRemover = document.createElement("button");
+        btnRemover.innerText = "🗑";
+        btnRemover.onclick = function () {
+            metas.splice(index, 1);
+            salvarMetas();
+            renderizarMetas();
+        };
+
+        li.appendChild(span);
+        li.appendChild(btnConcluir);
+        li.appendChild(btnRemover);
+
+        lista.appendChild(li);
+    });
+
+    // Atualiza contador
+    document.getElementById("contador").innerText =
+        `Concluídas: ${concluidas} / ${metasHoje.length}`;
+}
+
+// Carregar ao abrir
+renderizarMetas();

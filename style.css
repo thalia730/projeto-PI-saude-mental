@@ -20,14 +20,13 @@ body {
     background: white;
 }
 
+
 #topo-esquerda h2 {
-    margin: 0;
-    color: white;
+    color: #2e7d32;
 }
 
 .menu {
-    margin: 0;
-    color: white;
+    color: #333;
 }
 
 
@@ -98,6 +97,7 @@ button {
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
+    margin-left: 5px;
 }
 
 /* EMOTES */
@@ -138,11 +138,6 @@ textarea {
     display: none;
 }
 
-.menu {
-    text-align: center;
-    margin-top: 50px;
-}
-
 .bloco {
     width: 250px;
     margin: 15px auto;
@@ -168,4 +163,52 @@ textarea {
 
 .respiracao {
     background: #af7ac5;
+}
+
+/* FORA da .respiracao */
+.respiracao-box {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.bolinha {
+    width: 100px;
+    height: 100px;
+    background: #66bb6a;
+    border-radius: 50%;
+    margin: 20px auto;
+
+    animation: respirar 6s infinite;
+}
+
+/* animação */
+@keyframes respirar {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.5);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    75% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#contador {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.metas {
+    background: #f5b041;
 }
